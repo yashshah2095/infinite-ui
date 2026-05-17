@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Soft modern background capsule drop layer -->
+  <rect width="24" height="24" rx="6" fill="#0F172A"/>
+  <!-- Minimalist, high-visibility infinity path geometric loop -->
+  <path 
+    id="favicon-loop"
+    d="M7.5 9C5.51 9 3.9 10.34 3.9 12s1.61 3 3.6 3c1.56 0 2.9-.84 3.73-2.08l1.54-2.27c.83-1.24 2.17-2.08 3.73-2.08 1.99 0 3.6 1.34 3.6 3s-1.61 3-3.6 3c-1.56 0-2.9-.84-3.73-2.08L11.23 11.08C10.4 9.84 9.06 9 7.5 9z" 
+    stroke="#3B82F6" 
+    stroke-width="2.25" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+</svg>
