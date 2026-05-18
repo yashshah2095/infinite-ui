@@ -64,7 +64,6 @@ const demoFormSchema = [
   { name: 'adminEmail', label: 'Primary Owner Email', type: 'text', required: true, pattern: '^\\S+@\\S+\\.\\S+$', errorMessage: 'Must be a valid email string.', placeholder: 'admin@system.io' }
 ];
 
-// UPDATED: Dynamic status indicators mapped directly onto target component indexes
 const sidebarNavLinks = [
   { label: "Theme Laboratory", id: "theme-lab", icon: "⚛️" },
   { label: "Toggle Buttons", id: "toggle", icon: "🎛️" },
@@ -72,10 +71,10 @@ const sidebarNavLinks = [
   { label: "Pagination Bars", id: "pagination", icon: "🔢" },
   { label: "Workflow Steppers", id: "stepper", icon: "🪜" },
   { label: "Horizontal Tabs", id: "tabs", icon: "🔖" },
-  { label: "ContextMenu (Locked)", id: "contextmenu", icon: "🔒", locked: true }, // LOCKED
+  { label: "ContextMenu (Locked)", id: "contextmenu", icon: "🔒", locked: true }, 
   { label: "Date & Time Pickers", id: "datetime", icon: "📅" },
   { label: "Overlay Canvas", id: "overlays", icon: "💎" },
-  { label: "Form Renderer (Locked)", id: "forms", icon: "🔒", locked: true },   // LOCKED
+  { label: "Form Renderer (Locked)", id: "forms", icon: "🔒", locked: true },   
   { label: "Dropdowns & Selection", id: "dropdowns", icon: "🥞" },
   { label: "Tooltip Overlays", id: "tooltips", icon: "💬" },
   { label: "Base Field Inputs", id: "inputs", icon: "✏️" },
@@ -84,22 +83,22 @@ const sidebarNavLinks = [
   { label: "UI Button Elements", id: "buttons", icon: "🔘" },
   { label: "Global Notifications", id: "alerts", icon: "🚨" },
   { label: "Structured Cards", id: "cards", icon: "🎴" },
-  { label: "Toast Banners (Locked)", id: "toasts", icon: "🔒", locked: true },    // LOCKED
-  { label: "Side Drawers (Locked)", id: "drawers", icon: "🔒", locked: true },    // LOCKED
-  { label: "File Uploaders (Locked)", id: "uploaders", icon: "🔒", locked: true } // LOCKED
+  { label: "Toast Banners (Locked)", id: "toasts", icon: "🔒", locked: true },    
+  { label: "Side Drawers (Locked)", id: "drawers", icon: "🔒", locked: true },    
+  { label: "File Uploaders (Locked)", id: "uploaders", icon: "🔒", locked: true } 
 ];
 
 // ============================================================================
 // 2. REUSABLE ARCHITECTURAL SUB-COMPONENTS (VISUALIZERS & SHIELDS)
 // ============================================================================
 
-function LockedSectionPlaceholder({ title }) {
+function LockedSectionPlaceholder() {
   return (
     <div className="bg-slate-50 border border-slate-200/70 rounded-xl p-8 flex flex-col items-center justify-center text-center gap-2 shadow-inner animate-in fade-in duration-200">
       <div className="w-10 h-10 bg-slate-100 border rounded-xl flex items-center justify-center text-sm shadow-xs select-none">🔒</div>
       <p className="text-xs font-black text-slate-700 uppercase tracking-wider mt-1">Enterprise Module Lock</p>
       <p className="text-[11px] text-slate-400 max-w-xs font-semibold leading-relaxed">
-        This package feature is restricted under your current license profile parameters. Contact engineering support to request access tokens.
+        This component is part of our upcoming enterprise extension pack, designed for advanced use cases and exclusive to enterprise clients. For access inquiries, please contact our sales team at <a href="mailto:infinitycoreui@gmail.com" className="text-blue-500 hover:underline">infinitycoreui@gmail.com</a>.
       </p>
     </div>
   );
@@ -181,7 +180,6 @@ export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const [formColumns, setFormColumns] = useState(2);
   const [dropdownMultiple, setDropdownMultiple] = useState(true);
   const [searchMultiple, setSearchMultiple] = useState(true);
   const [tooltipVariant, setTooltipVariant] = useState('info');
@@ -210,11 +208,17 @@ export default function App() {
     setActiveProfileKey('userCustom');
   };
 
+  // ============================================================================
+  // INJECTION 1: INTEGRATED HEADER LINKS MAPPING
+  // ============================================================================
   const headerNavigationLinks = [
-    { label: '📧 Contact Engineering Team', id: 'contact', onClick: () => setIsContactModalOpen(true) }
+    { 
+      label: '📧 Contact Engineering Team', 
+      id: 'contact', 
+      onClick: () => setIsContactModalOpen(true) 
+    }
   ];
 
-  // Dynamic calculation mapping hooks converting state values to text snippets
   const dynamicSnippets = {
     toggle: `<ToggleButton \n  id="secure-toggle"\n  label="Sync Pipeline Engine" \n  checked={${toggleActive}} \n  disabled={${toggleDisabled}} \n  onChange={setToggleActive} \n  role="switch"\n  aria-checked={${toggleActive}}\n/>`,
     breadcrumbs: `<Breadcrumbs items={crumbs} separator="${breadcrumbSeparator}" onCrumbClick={handleTruncate} role="navigation" />`,
@@ -249,6 +253,34 @@ export default function App() {
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
+  }, []);
+
+  // ============================================================================
+  // INJECTION 2: DYNAMIC FLOATING INTERACTIVE WIDGET SCRIPT MOUNT
+  // ============================================================================
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/bomre/1.0.1/bmc-widget.min.js';
+    script.async = true;
+    
+    // Customization matrix attributes supplied natively by Buy Me a Coffee
+    script.setAttribute('data-name', 'BMC-Widget');
+    script.setAttribute('data-id', 'yourusername'); // <-- Swap with your username string!
+    script.setAttribute('data-description', 'Support open-source development!');
+    script.setAttribute('data-message', 'Thank you for visiting Infinite UI! Want to support the engine?');
+    script.setAttribute('data-color', '#2563EB'); // Matches classic Blue token hex
+    script.setAttribute('data-position', 'Right');
+    script.setAttribute('data-x_margin', '18');
+    script.setAttribute('data-y_margin', '18');
+
+    document.body.appendChild(script);
+
+    // Structural teardown function loop clearing side-effects on view changes
+    return () => {
+      document.body.removeChild(script);
+      const remainingWidget = document.getElementById('bmc-wbtn');
+      if (remainingWidget) remainingWidget.remove();
+    };
   }, []);
 
   return (
