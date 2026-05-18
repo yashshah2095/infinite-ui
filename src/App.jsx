@@ -4,7 +4,7 @@ import './index.css';
 
 // Context & Theme Strategy Architecture
 import { ThemeProvider } from './components/ThemeContext';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import SidebarNav from './components/SidebarNav';
 import Button from './components/Button';
 import Alert from './components/Alert';
@@ -590,7 +590,7 @@ export default function App() {
             <p className="text-xs text-slate-500 leading-relaxed font-medium">Have questions about integrating components or managing context models? Reach out directly.</p>
             <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col gap-1.5 shadow-inner">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Direct Support Mailbox</span>
-              <a href="mailto:support@infiniteui.io" className="text-sm font-black text-blue-600 hover:text-blue-700 hover:underline transition-colors cursor-pointer select-all">support@infiniteui.io</a>
+              <a href="mailto:infinitycoreui@gmail.com" className="text-sm font-black text-blue-600 hover:text-blue-700 hover:underline transition-colors cursor-pointer select-all">infinitycoreui@gmail.com</a>
               <span className="text-[10px] font-semibold text-slate-400 mt-1">⏱️ Response SLA: Under 24 operational hours</span>
             </div>
             <div className="pt-2 flex justify-end"><Button variant="outline" onClick={() => setIsContactModalOpen(false)}>Dismiss Window</Button></div>

@@ -4,7 +4,6 @@
 export { ThemeProvider, useTheme } from './components/ThemeContext';
 
 // The rest of your component default exports remain exactly the same:
-export { default as Navbar } from './components/Navbar';
 export { default as SidebarNav } from './components/SidebarNav';
 export { default as Button } from './components/Button';
 export { default as Alert } from './components/Alert';

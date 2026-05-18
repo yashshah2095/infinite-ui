@@ -1,13 +1,15 @@
-<!doctype html>
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-react-app</title>
+    <title>Infinite UI Playground</title>
   </head>
-  <body>
+  <body class="bg-slate-50">
     <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
+    
+    <!-- FIXED: Ensure this points to main.jsx, NEVER your library index.js -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

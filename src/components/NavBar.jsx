@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useTheme } from './ThemeContext';
 import { resolveTheme } from './themeEngine';
 
-export default function Navbar({ brandName = "Infinite UI", links = [], activeView }) {
+export default function NavBar({ brandName = "Infinite UI", links = [], activeView }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const globalTheme = useTheme();
   const { isPreset, tailwindClasses } = resolveTheme(globalTheme.base, 'solid');
