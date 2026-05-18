@@ -53,9 +53,6 @@ export default function Navbar({ brandName = "Infinite UI", links = [], activeVi
 
         {/* CONTROLS BADGE */}
         <div className="flex items-center gap-3">
-          <span className="hidden sm:inline-block text-[10px] uppercase font-bold tracking-widest bg-black/15 px-2.5 py-1 rounded-md border border-white/5">
-            v1.4 Core Active
-          </span>
           <button 
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

@@ -1,9 +1,10 @@
 {
-  "name": "infinity-ui-dls",
-  "private": true,
-  "version": "0.0.0",
+  "name": "infinite-ui-core",
+  "private": false,
+  "version": "0.0.1",
   "owner": "infinity-ui",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,7 +12,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

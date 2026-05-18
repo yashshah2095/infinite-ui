@@ -1,4 +1,4 @@
-# Infinite UI Design System — v1.4 Core
+# Infinite UI Design System
 
 Infinite UI is a lightweight, zero-dependency, schema-driven component laboratory engineered natively with **React 18** and **Tailwind CSS**. It features a centralized dynamic theme context engine, client-side data matrix tracking, viewport-relative overlay handlers, and highly scannable declarative UI patterns.
 

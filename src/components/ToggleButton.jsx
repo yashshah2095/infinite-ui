@@ -1,43 +1,37 @@
 // src/components/ToggleButton.jsx
 import React from 'react';
-import { useTheme } from './ThemeContext';
-import { resolveTheme } from './themeEngine';
 
-export default function ToggleButton({ checked, onChange, label }) {
-  const globalTheme = useTheme();
-  const { isPreset, tailwindClasses } = resolveTheme(globalTheme.base, 'solid');
-
-  // Apply the custom hex color dynamically to the track if no system preset is used
-  const trackInlineStyle = !isPreset && checked ? { backgroundColor: globalTheme.base } : {};
-
+export default function ToggleButton({ 
+  label, 
+  checked = false, 
+  disabled = false, 
+  onChange,
+  id = "toggle-switch" // Added fallback unique ID for label mapping
+}) {
   return (
-    <label className="flex items-center gap-3 cursor-pointer select-none">
+    <label 
+      htmlFor={id}
+      className={`flex items-center gap-3 select-none transition-all ${
+        disabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer'
+      }`}
+    >
       <div className="relative">
-        {/* Hidden Input controls the 'peer' states */}
-        <input 
-          type="checkbox" 
-          checked={checked} 
-          onChange={(e) => onChange?.(e.target.checked)} 
-          className="sr-only peer" 
+        <input
+          id={id}
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={(e) => onChange && onChange(e.target.checked)}
+          className="sr-only peer"
+          // --- ACCESSIBILITY INJECTIONS ---
+          role="switch"
+          aria-checked={checked}
+          aria-label={label || "Toggle switch"}
         />
-        
-        {/* TRACK: Fills with primary color when checked, slate-200 when off */}
-        <div 
-          className={`w-11 h-6 rounded-full transition-colors duration-300 ${
-            checked 
-              ? (isPreset ? tailwindClasses.bg : '') 
-              : 'bg-slate-200'
-          }`}
-          style={trackInlineStyle}
-        />
-        
-        {/* DOT / HANDLE: Glides to the right and drops its border when checked */}
-        <div 
-          className="absolute top-[2px] left-[2px] bg-white border border-slate-300 peer-checked:border-transparent rounded-full h-5 w-5 transition-transform duration-300 peer-checked:translate-x-5 shadow-sm"
-        />
+        <div className="w-10 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer transition-colors duration-200 peer-checked:bg-slate-900 peer-focus:ring-2 peer-focus:ring-slate-300" />
+        <div className="absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 peer-checked:translate-x-4 shadow-sm" />
       </div>
-      
-      {label && <span className="text-xs font-bold text-slate-700">{label}</span>}
+      {label && <span className="text-xs font-bold text-slate-600">{label}</span>}
     </label>
   );
 }
