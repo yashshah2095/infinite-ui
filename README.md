@@ -1,48 +1,159 @@
-# Infinite UI Design System
+# Infinite UI Core
 
-Infinite UI is a lightweight, zero-dependency, schema-driven component laboratory engineered natively with **React 18** and **Tailwind CSS**. It features a centralized dynamic theme context engine, client-side data matrix tracking, viewport-relative overlay handlers, and highly scannable declarative UI patterns.
+A clean, high-performance, and fully accessible React component library optimized for rapid dashboard development. Built with native WAI-ARIA compliance guidelines and beautifully styled using next-generation Tailwind CSS tokens.
 
 ---
 
 ## 🚀 Key Features
 
-*   **Context-Driven Theme Laboratory:** Dynamically transforms individual component styles using atomic Tailwind presets or live user-provided hex color string overrides.
-*   **Zero External Dependencies:** Built entirely on native React state hooks and standard web browser layout APIs to keep bundle sizes minimal.
-*   **Path-Truncating Breadcrumbs:** Eliminates hardcoded routing jumps by handling path adjustments client-side. Clicking a parent item instantly slices off downstream children arrays dynamically.
-*   **Coordinate-Relative Overlays:** Floating popovers like right-click context menus map coordinates accurately via viewport-relative tracking (`clientX/Y`), preventing scroll misalignment bugs.
-*   **Data Analytics Grid Matrix:** Features responsive column sorting indicators, row selection state registers, and a built-in memory Blob compiler for instant client-side CSV downloads.
+- Zero Boilerplate: Pre-compiled production styles mean you get full design features instantly without messing up your local bundler setups.
+- Hybrid Layout Architectures: Fluid interaction hooks mapping perfectly across both microfrontends and monolithic platforms.
+- Open Core Model: Standard UI primitives are 100% free and open-source, with advanced enterprise pipelines structurally safeguarded for licensed environments.
 
 ---
 
-## 📂 Project Architecture Mapping
+## 📦 Installation
 
-To guarantee zero undefined reference errors across execution channels, maintain your local project tree to match this directory blueprint exactly:
+Install the core library using your preferred package manager:
 
-```text
-src/
-├── components/
-│   ├── ThemeContext.jsx      # Global theme state distributor
-│   ├── themeEngine.js        # Presets-to-class translation logic
-│   ├── Navbar.jsx            # Responsive semantic top navigation bar
-│   ├── SidebarNav.jsx        # Vertical scroll-spy index menu
-│   ├── Button.jsx            # Action trigger elements (Solid/Outline/Ghost)
-│   ├── Input.jsx             # Base text data field captures with validation
-│   ├── Dropdown.jsx          # Array-backed multi-select option box
-│   ├── SearchDropdown.jsx    # Fuzzy-filtered token chip combobox
-│   ├── DataTable.jsx         # Sortable table grid with native CSV exporter
-│   ├── ProgressLoader.jsx    # Async circular, linear, and suspense indicators
-│   ├── Alert.jsx             # Global system broadcast message panels
-│   ├── Accordion.jsx         # Disclosure summary info drawers
-│   ├── Tooltip.jsx           # Click/Hover intent overlay indicators
-│   ├── FormRenderer.jsx      # Schema-driven multi-column form engine
-│   ├── Modal.jsx             # Accessible overlay sheets with click-outside dismiss
-│   ├── Dialog.jsx            # Critical transactional confirmation cards
-│   ├── ToggleButton.jsx      # Fluid binary state slide switches
-│   ├── Breadcrumbs.jsx       # Custom-sliced navigation tree trails
-│   ├── Pagination.jsx        # Rigid data boundary boundary page controllers
-│   ├── Stepper.jsx           # Milestone pipeline progress trackers
-│   ├── Tabs.jsx              # Underlined horizontal layout view swappers
-│   ├── ContextMenu.jsx       # ClientX/Y right-click popup capture links
-│   └── DateTimePicker.jsx    # Unified context datetime calendar scheduling inputs
-├── App.jsx                   # Central sandboxed live playground workspace
-└── index.css                 # Master Tailwind CSS framework configuration vectors
+npm install infinite-ui-core
+
+or
+
+yarn add infinite-ui-core
+
+## 🌐 Live Demo
+
+👉 [Click Here](https://infinite-ui-weld.vercel.app/)
+
+---
+
+## 🔧 Step-by-Step Setup
+
+### 1. Import the Pre-Compiled Stylesheet
+
+Add this at the top of your root entry file (src/main.jsx or src/index.js):
+
+// src/main.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+// Core library styles
+import 'infinite-ui-core/dist/style.css';
+
+// Your custom styles
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+No Tailwind Required: Your project does NOT need Tailwind CSS. All styles are pre-packaged and ready to use.
+
+---
+
+## 🧩 Usage Example
+
+// src/App.jsx
+import React, { useState } from 'react';
+import { Button, ToggleButton, Card, Breadcrumbs } from 'infinite-ui-core';
+
+export default function App() {
+  const [syncActive, setSyncActive] = useState(false);
+
+  const crumbs = [
+    { label: 'Dashboard' },
+    { label: 'Cluster Allocations' }
+  ];
+
+  return (
+    <div style={{ padding: '24px', maxWidth: '600px' }}>
+      
+      <Breadcrumbs items={crumbs} separator="→" />
+
+      <Card style={{ marginTop: '16px' }}>
+        <Card.Header>
+          <h3 style={{ margin: 0, fontWeight: 'bold' }}>
+            Remote Node Management
+          </h3>
+        </Card.Header>
+
+        <Card.Body>
+          <p>
+            Toggle the engine state parameters to sync remote container agents.
+          </p>
+
+          <ToggleButton
+            id="engine-sync"
+            label="Enforce Engine Sync Pipeline"
+            checked={syncActive}
+            onChange={setSyncActive}
+          />
+        </Card.Body>
+
+        <Card.Footer>
+          <Button
+            variant={syncActive ? 'solid' : 'outline'}
+            onClick={() => alert('Execution Sequence Dispatched')}
+          >
+            Execute Runtime Protocol
+          </Button>
+        </Card.Footer>
+      </Card>
+
+    </div>
+  );
+}
+
+---
+
+## 🗂️ Component Directory Status
+
+Core UI Primitives (Available Now)
+
+- Button  
+- ToggleButton  
+- Card  
+- Breadcrumbs  
+- Pagination  
+- ContextMenu  
+- Stepper  
+- Tabs  
+- Modal & Dialog  
+- Dropdown & SearchDropdown  
+- Tooltip  
+- DataTable  
+- ProgressLoader  
+- Alert  
+- Input  
+
+Enterprise Modules (Locked / Requires Token)
+
+- FormRenderer  
+- Toast  
+- Drawer  
+- FileUploader  
+- DateTimePicker  
+
+Attempting to use enterprise modules without proper licensing will display a Module Lock placeholder UI.
+
+---
+
+## 🛠️ Troubleshooting
+
+Failed to resolve import:
+
+Run:
+
+npm run dev -- --force
+
+---
+
+Component styles appear blank:
+
+Ensure this is added:
+
+import 'infinite-ui-core/dist/style.css';

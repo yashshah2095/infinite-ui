@@ -1,5 +1,5 @@
 // src/index.js
-
+import './index.css';
 // FIXED: Export the named layout tokens instead of hunting for a default export
 export { ThemeProvider, useTheme } from './components/ThemeContext';
 

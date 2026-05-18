@@ -1,9 +1,22 @@
 {
   "name": "infinite-ui-core",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.8",
   "owner": "infinity-ui",
   "type": "module",
+  "homepage": "https://infinite-ui-weld.vercel.app/",
+  "main": "./dist/infinite-ui.cjs.js",
+  "module": "./dist/infinite-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/infinite-ui.es.js",
+      "require": "./dist/infinite-ui.cjs.js"
+    },
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -29,6 +42,7 @@
     "globals": "^17.6.0",
     "postcss": "^8.5.14",
     "tailwindcss": "^4.3.0",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "vite-plugin-css-injected-by-js": "^5.0.1"
   }
 }

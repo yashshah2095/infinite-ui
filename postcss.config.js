@@ -1,7 +1,8 @@
-// postcss.config.js
+// postcss.config.js (INSIDE YOUR LIBRARY PROJECT ROOT)
 export default {
   plugins: {
-    '@tailwindcss/postcss': {}, // <-- Update this line here
+    // FIXED: Point to the dedicated Tailwind v4 PostCSS package
+    '@tailwindcss/postcss': {}, 
     autoprefixer: {},
   },
 }

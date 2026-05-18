@@ -13,8 +13,8 @@ export default defineConfig({
       formats: ['es', 'cjs']
     },
     rollupOptions: {
-      // Keep React out of the public npm bundle
-      external: ['react', 'react-dom'],
+      // THE FIX: Explicitly externalize the JSX runtime so Vite doesn't bundle its 'require' statements
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
